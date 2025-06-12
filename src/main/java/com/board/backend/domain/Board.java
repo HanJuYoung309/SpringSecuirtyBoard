@@ -1,20 +1,20 @@
 package com.board.backend.domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@ToString(exclude = {"user"}) // user 필드를 toString()에서 제외
+@EqualsAndHashCode(exclude = {"user"}) // user 필드를 equals/hashCode에서 제외
 public class Board {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
